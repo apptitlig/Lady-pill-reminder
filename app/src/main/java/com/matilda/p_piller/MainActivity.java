@@ -1,6 +1,8 @@
 package com.matilda.p_piller;
 
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.graphics.Color;
 import android.os.Build;
@@ -51,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             updateTextViewWithText();
         }
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "notify_001",
+                    c.getString(R.string.channel),
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            mNotificationManager.createNotificationChannel(channel);
+        }
+
     }
 
     public static MainActivity getInstance()

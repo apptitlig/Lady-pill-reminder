@@ -10,4 +10,5 @@
     <string name="take_lady_pill">Take your lady pill</string>
     <string name="dont_get_pregnant">Do not get pregnant</string>
     <string name="reminder">Reminder</string>
+    <string name="channel">Daily reminder</string>
 </resources>

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
+import java.nio.channels.Channel;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -81,13 +82,6 @@ public class SendNotification extends BroadcastReceiver {
 
             NotificationManager mNotificationManager =
                     (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channel = new NotificationChannel("notify_001",
-                        "Channel human readable title",
-                        NotificationManager.IMPORTANCE_DEFAULT);
-                mNotificationManager.createNotificationChannel(channel);
-            }
 
             mNotificationManager.notify(0, mBuilder.build());
 
