@@ -1,15 +1,23 @@
 apply plugin: 'com.android.application'
 
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+        }
+    }
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.matilda.p_piller"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 29
-        versionCode 11
-        versionName "1.0.7"
+        versionCode 12
+        versionName "1.0.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
