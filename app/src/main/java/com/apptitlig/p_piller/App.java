@@ -1,4 +1,4 @@
-package com.matilda.p_piller;
+package com.apptitlig.p_piller;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;

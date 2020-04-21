@@ -1,4 +1,4 @@
-package com.matilda.p_piller;
+package com.apptitlig.p_piller;
 
 import java.util.List;
 
