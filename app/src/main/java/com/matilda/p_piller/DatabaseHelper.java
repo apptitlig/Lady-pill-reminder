@@ -8,7 +8,7 @@ public class DatabaseHelper {
     private static Day d;
     private static List<Day> days;
 
-    public void insertDay(Day day)
+    void insertDay(Day day)
     {
         d = day;
         Thread t = new Thread(new Runnable() {
@@ -28,7 +28,7 @@ public class DatabaseHelper {
 
     public void insertDays(List<Day> d)
     {
-        this.days = d;
+        days = d;
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -47,9 +47,9 @@ public class DatabaseHelper {
         }
     }
 
-    public void deleteDays(List<Day> d)
+    void deleteDays(List<Day> d)
     {
-        this.days = d;
+        days = d;
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +68,7 @@ public class DatabaseHelper {
         }
     }
 
-    public Day getDay(String formatted)
+    Day getDay(String formatted)
     {
         s = formatted;
         Thread t = new Thread(new Runnable() {
@@ -86,7 +86,7 @@ public class DatabaseHelper {
         return d;
     }
 
-    public List<Day> getAll()
+    List<Day> getAll()
     {
         Thread t = new Thread(new Runnable() {
             @Override

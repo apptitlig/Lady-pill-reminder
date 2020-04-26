@@ -1,8 +1,8 @@
 package com.matilda.p_piller;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.annotation.NonNull;
 
 @Entity
 public class Day {
@@ -11,7 +11,7 @@ public class Day {
     private int id;
     private String day;
 
-    public Day() {
+    Day() {
     }
 
     public int getId(){
@@ -22,11 +22,11 @@ public class Day {
         this.id = id;
     }
 
-    public String getDay() {
+    String getDay() {
         return day;
     }
 
-    public void setDay(String day) {
+    void setDay(String day) {
         this.day = day;
     }
 }

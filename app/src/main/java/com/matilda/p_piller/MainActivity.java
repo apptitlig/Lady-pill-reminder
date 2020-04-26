@@ -9,8 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.TimePicker;
 import android.widget.TextView;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         c = getApplicationContext();
         s = new Settings(c);
-        tp = (TimePicker) this.findViewById(R.id.time_picker);
+        tp = this.findViewById(R.id.time_picker);
         tp.setIs24HourView(true);
 
         tp.setHour(s.getSavedHour());
@@ -150,6 +150,6 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             MainActivity.getInstance().updateTextViewWithIngetLarm();
-        } catch (Exception e) { }
+        } catch (Exception ignored) { }
     }
 }
