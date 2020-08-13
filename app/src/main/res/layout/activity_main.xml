@@ -25,6 +25,9 @@
             android:id="@+id/startAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/rounded_corners"
             android:fadingEdge="horizontal|vertical"
             android:onClick="startAlarm"
@@ -32,29 +35,47 @@
             android:paddingBottom="5dp"
             android:text="@string/starta_alarm" />
 
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/pauseAlarm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners"
-            android:onClick="periods"
-            android:text="@string/pausa_alarm_i_7_dagar" />
+            <Button
+                android:id="@+id/pauseAlarm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners"
+                android:onClick="periods"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.5"
+                android:text="@string/pausa_alarm_i_7_dagar" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            <Button
+                android:id="@+id/calendar_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:onClick="chooseDay"
+                android:background="@drawable/rounded_corners"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.5"
+                android:text="@string/choose_day" />
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/turnOffAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
             android:onClick="turnOffAlarm"
-            android:text="@string/stoppa_alarm"
-            android:background="@drawable/rounded_corners"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/stoppa_alarm" />
 
     </LinearLayout>
 
@@ -66,14 +87,14 @@
             android:id="@+id/time_picker"
             android:layout_width="match_parent"
             android:layout_height="335dp"
-            android:timePickerMode="spinner"></TimePicker>
+            android:timePickerMode="spinner" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="213dp"
             android:layout_height="159dp"
             android:layout_gravity="bottom|end"
-            android:contentDescription="@string/vinny"
+            android:contentDescription="@string/doggo"
             app:srcCompat="@drawable/umbrella" />
     </FrameLayout>
 

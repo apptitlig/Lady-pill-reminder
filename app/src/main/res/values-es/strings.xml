@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Recordatorio de píldora</string>
+    <string name="starta_alarm">Comenza la alarma</string>
+    <string name="pausa_alarm_i_7_dagar">Pausa la alarma por siete días</string>
+    <string name="stoppa_alarm">Interrumpe la alarma</string>
+    <string name="doggo">perro</string>
+    <string name="no_alarm">Ninguna alarma</string>
+    <string name="next_alarm">La próxima alarma</string>
+    <string name="take_lady_pill">Toma la píldora</string>
+    <string name="dont_get_pregnant">No te embarazas</string>
+    <string name="reminder">Recordatorio</string>
+    <string name="channel">Recordatorio diario</string>
+    <string name="OK">Vale</string>
+    <string name="choose_day">Pausa hasta el día elegido</string>
+</resources>

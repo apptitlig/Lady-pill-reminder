@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,20 +29,20 @@ public class StartAlarmManager {
 
         // if we do not add a day to the date, and the date is set to a time that is earlier than
         // current time, the alarm will go off immediately
-        boolean returnvalue = calendar.getTime().compareTo(currentTime.getTime()) < 0;
+        boolean returnvalue = calendar.getTime().compareTo(currentTime.getTime()) <= 0;
         if ( returnvalue )
         {
             calendar.add(Calendar.DATE, 1);
         }
         Intent intent = new Intent(c, SendNotification.class);
-        pendingIntent = PendingIntent.getBroadcast(c, 0,
-                   intent, 0);
+        pendingIntent = PendingIntent.getBroadcast(c, 0, intent, 0);
+        Log.d(TAG, "Startar ett larm");
         AlarmManager alarm = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
 
-        alarm.setRepeating(AlarmManager.RTC,
+        assert alarm != null;
+        alarm.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
                 calendar.getTimeInMillis(),
                 //repeatInterval,
-                AlarmManager.INTERVAL_DAY,
                 pendingIntent);
 
         SimpleDateFormat sdf = new SimpleDateFormat(MainActivity.SDF_FORMAT);
@@ -49,7 +50,7 @@ public class StartAlarmManager {
         s.saveTextViewText(formatted);
         try {
             MainActivity.getInstance().updateTextViewWithText();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
         return returnvalue;

@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".CalendarActivity" />
+
         <receiver
             android:name=".SendNotification"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">

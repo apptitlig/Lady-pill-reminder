@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
@@ -19,6 +20,7 @@ public class SendNotification extends BroadcastReceiver {
 
     public void onReceive(Context c, Intent intent)
     {
+        Log.d(TAG, "On recieve");
         Settings s = new Settings(c);
 
         // Do nothing if alarm is not started
@@ -31,16 +33,21 @@ public class SendNotification extends BroadcastReceiver {
             Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction()))
         {
             StartAlarmManager start = new StartAlarmManager();
-            boolean earliertoday = start.startAlarm(c);
-            if (earliertoday)
+            boolean earlier = start.startAlarm(c);
+            if (earlier)
             {
                 sendNotification(c);
             }
+            Log.d(TAG, "Startup");
         }
         else  /* timer */
         {
+            Log.d(TAG, "Timer");
             sendNotification(c);
         }
+
+        StartAlarmManager start = new StartAlarmManager();
+        start.startAlarm(c);
     }
 
 

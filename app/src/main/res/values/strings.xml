@@ -3,11 +3,13 @@
     <string name="starta_alarm">Start alarm</string>
     <string name="pausa_alarm_i_7_dagar">Pause alarm for 7 dagar</string>
     <string name="stoppa_alarm">Stop alarm</string>
-    <string name="vinny">dog</string>
+    <string name="doggo">dog</string>
     <string name="no_alarm">No alarm</string>
     <string name="next_alarm">Next alarm</string>
     <string name="take_lady_pill">Take your lady pill</string>
     <string name="dont_get_pregnant">Do not get pregnant</string>
     <string name="reminder">Reminder</string>
     <string name="channel">Daily Reminder</string>
+    <string name="OK">OK</string>
+    <string name="choose_day">Pause until chosen day</string>
 </resources>

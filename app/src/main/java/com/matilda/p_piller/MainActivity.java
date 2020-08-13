@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TimePicker;
 import android.widget.TextView;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateTextViewWithText()
     {
+        Log.d(TAG, "uppdaterar text");
         MainActivity.this.runOnUiThread(new Runnable() {
             public void run() {
 
@@ -101,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
     public void startAlarm(View view)
     {
         DatabaseHelper dbh = new DatabaseHelper();
-
         s.saveTime(tp.getHour(), tp.getMinute());
 
         List<Day> days = dbh.getAll();
@@ -115,28 +116,36 @@ public class MainActivity extends AppCompatActivity {
 
     public void periods(View view)
     {
+        pause ( 7);
+    }
+
+    private void pause (int length)
+    {
         DatabaseHelper dbh = new DatabaseHelper();
+        List<Day> days = dbh.getAll();
+        dbh.deleteDays(days);
+
+
         SimpleDateFormat sdf = new SimpleDateFormat(MainActivity.SDF_FORMAT);
         Calendar time = Calendar.getInstance(Locale.getDefault());
         time.set(Calendar.HOUR_OF_DAY, s.getSavedHour());
         time.set(Calendar.MINUTE, s.getSavedHour());
-        for (int i = 0; i <  6; i++)
+        for (int i = 0; i < length; i++)
         {
-            time.add(Calendar.DATE, 1);
+
             String formatted = sdf.format(time.getTime());
 
             Day d = new Day();
             d.setDay(formatted);
             dbh.insertDay(d);
+            time.add(Calendar.DATE, 1);
         }
-        time.add(Calendar.DATE, 1);
+        //Skriv en dag senare till display
         String formatted = sdf.format(time.getTime());
         s.saveTextViewText(formatted);
         try {
             MainActivity.getInstance().updateTextViewWithText();
-        } catch (Exception e) {
-
-        }
+        } catch (Exception ignored) { }
     }
 
     public void turnOffAlarm(View view)
@@ -151,5 +160,23 @@ public class MainActivity extends AppCompatActivity {
         try {
             MainActivity.getInstance().updateTextViewWithIngetLarm();
         } catch (Exception ignored) { }
+    }
+
+    public void chooseDay(View view)
+    {
+        Intent myIntent = new Intent(MainActivity.this, CalendarActivity.class);
+        //myIntent.putExtra("key", value); //Optional parameters
+        MainActivity.this.startActivityForResult(myIntent, 1);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                int pauseLength = data.getIntExtra("pause", 0);
+
+                pause ( pauseLength );
+            }
+        }
     }
 }

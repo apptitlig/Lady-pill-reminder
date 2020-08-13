@@ -17,6 +17,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
+
         // create database
         database = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, DATABASE_NAME)
                 .build();
