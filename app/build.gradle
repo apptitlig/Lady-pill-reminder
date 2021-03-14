@@ -16,7 +16,7 @@ android {
         applicationId "com.matilda.p_piller"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 17
+        versionCode 18
         versionName "2.1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -24,12 +24,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
-    }
-
-    buildFeatures {
-        dataBinding true
     }
 }
 
